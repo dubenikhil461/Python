@@ -12,3 +12,13 @@ Optionally, advanced projects use Pipfile (with Pipenv) or pyproject.toml (with 
 python -m venv venv
 source venv/bin/activate     # or venv\Scripts\activate (Windows)
 pip install -r requirements.txt
+venv\Scripts\activate
+
+# Activate (Linux/Mac/WSL)
+source venv/bin/activate
+
+# Install deps only for this project
+pip install flask requests
+
+# Save them
+pip freeze > requirements.txt
