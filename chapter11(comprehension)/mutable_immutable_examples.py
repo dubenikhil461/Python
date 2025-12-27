@@ -178,87 +178,6 @@ print(f"Original: {original}")  # Unchanged
 print(f"Deep copy: {deep_copy}")
 
 # ============================================
-# MUTABLE CONTAINING IMMUTABLE
-# ============================================
-
-print("\n" + "=" * 50)
-print("MUTABLE CONTAINING IMMUTABLE")
-print("=" * 50)
-
-# List containing immutable types
-print("\n1. List (mutable) containing immutable types:")
-my_list = [1, 2, 3, "hello", (4, 5), True]
-print(f"List: {my_list}")
-print(f"List ID: {id(my_list)}")
-my_list.append(6)  # Can modify the list
-print(f"After append: {my_list}")
-print(f"List ID: {id(my_list)} (same - list is mutable)")
-print("✅ Mutable container can hold immutable elements")
-
-# Dictionary with immutable keys
-print("\n2. Dictionary (mutable) with immutable keys:")
-my_dict = {
-    "name": "Alice",
-    "age": 30,
-    (1, 2): "tuple_key"
-}
-print(f"Dict: {my_dict}")
-my_dict["city"] = "NYC"  # Can modify the dict
-print(f"After adding key: {my_dict}")
-print("✅ Dictionary keys must be immutable (hashable)")
-
-# Set containing immutable elements
-print("\n3. Set (mutable) containing immutable elements:")
-my_set = {1, 2, 3, "hello", (4, 5), frozenset([6, 7])}
-print(f"Set: {my_set}")
-my_set.add(8)  # Can modify the set
-print(f"After add: {my_set}")
-print("✅ Set elements must be immutable (hashable)")
-
-# ============================================
-# IMMUTABLE CONTAINING MUTABLE
-# ============================================
-
-print("\n" + "=" * 50)
-print("IMMUTABLE CONTAINING MUTABLE")
-print("=" * 50)
-
-# Tuple containing mutable objects
-print("\n1. Tuple (immutable) containing list (mutable):")
-my_tuple = (1, 2, [3, 4], "hello")
-print(f"Tuple: {my_tuple}")
-print(f"Tuple ID: {id(my_tuple)}")
-
-# Cannot modify tuple structure
-print("\nTrying to modify tuple directly:")
-try:
-    my_tuple[0] = 10
-except TypeError as e:
-    print(f"❌ Error: {e}")
-
-# But can modify mutable object inside
-print("\nModifying list inside tuple:")
-my_tuple[2].append(5)  # This works!
-print(f"After modifying list: {my_tuple}")
-print(f"Tuple ID: {id(my_tuple)} (same - tuple is still immutable)")
-print("⚠️ Tuple structure is immutable, but mutable elements inside can change!")
-
-# Demonstrating the behavior
-print("\n2. Demonstrating tuple with mutable elements:")
-nested_tuple = ([1, 2], [3, 4])
-print(f"Original: {nested_tuple}")
-nested_tuple[0].append(5)
-print(f"After modifying first list: {nested_tuple}")
-print("The tuple 'appears' to change, but it's the list inside that changed")
-
-# Frozenset - can only contain immutable
-print("\n3. Frozenset (immutable) - can only contain immutable elements:")
-frozen = frozenset([1, 2, 3, "hello", (4, 5)])
-print(f"Frozenset: {frozen}")
-print("✅ Frozenset can contain immutable elements")
-print("❌ Frozenset cannot contain mutable elements (not hashable)")
-
-# ============================================
 # SUMMARY
 # ============================================
 
@@ -282,4 +201,9 @@ print("  2. Immutable types can be used as dictionary keys")
 print("  3. Mutable types require careful handling with assignments")
 print("  4. Never use mutable default arguments in functions")
 print("  5. Use copy() or deepcopy() when you need independent copies")
+
+
+
+
+
 
